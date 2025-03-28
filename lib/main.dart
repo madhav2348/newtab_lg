@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:lgapp/color.dart';
+import 'package:lgapp/sizeconfig.dart';
 
 void main() {
   runApp(const MyApp());
@@ -32,93 +33,126 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Theme.of(context).colorScheme.inversePrimary,
+        // leading: Icon(Icons.ice_skating_outlined),
+        // backgroundColor: Theme.of(context).colorScheme.inversePrimary,
       ),
       body: Center(
         child: Padding(
-          padding: const EdgeInsets.all(8.0),
-          child: Row(
-            spacing: 30,
-            mainAxisAlignment: MainAxisAlignment.center,
-            // crossAxisAlignment: CrossAxisAlignment.center,
-            children: [
-              Text('NA'),
-              Container(
-                decoration: BoxDecoration(color: Colors.black),
-                height: 100,
-                width: 800,
-                child: ListView.builder(
-                  scrollDirection: Axis.horizontal,
-                  shrinkWrap: true,
-                  itemCount: cNA.length,
-                  itemBuilder:
-                      (context, index) => ListTile(
-                        leading: CircleAvatar(backgroundColor: cNA[index]),
-                      ),
+          padding: const EdgeInsets.only(left: 50, right: 50),
+          child: SingleChildScrollView(
+            child: Column(
+              spacing: 30,
+              // mainAxisAlignment: MainAxisAlignment.start,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(style: Theme.of(context).textTheme.headlineLarge, 'NA'),
+                SizedBox(
+                  width: MediaQuery.sizeOf(context).width,
+                  height: 300,
+                  child: GridView.builder(
+                    gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                      crossAxisSpacing: 30,
+                      mainAxisSpacing: 30,
+                      crossAxisCount:
+                          MediaQuery.sizeOf(context).width < SizeConfig.tablet
+                              ? 4
+                              : MediaQuery.sizeOf(context).width <
+                                  SizeConfig.desktop
+                              ? 8
+                              : 10,
+                    ),
+                    // scrollDirection: Axis.horizontal,
+                    // shrinkWrap: true,
+                    itemCount: cNA.length,
+                    itemBuilder:
+                        (context, index) =>
+                            CircleAvatar(backgroundColor: cNA[index]),
+                  ),
                 ),
-              ),
+                Text(
+                  'Clay and Sea',
+                  style: Theme.of(context).textTheme.headlineLarge,
+                ),
 
-              // SizedBox(
-              //   height: 600,
-              //   width: 100,
-              //   child: Column(
-              //     spacing: 10,
-              //     children: [
-              //       Text('Clay and Sea'),
-              //       ListView.builder(
-              //         shrinkWrap: true,
-              //         itemCount: clayAndSea.length,
-              //         itemBuilder:
-              //             (context, index) => ListTile(
-              //               leading: CircleAvatar(
-              //                 backgroundColor: clayAndSea[index],
-              //               ),
-              //             ),
-              //       ),
-              //     ],
-              //   ),
-              // ),
-              // SizedBox(
-              //   height: 600,
-              //   width: 100,
-              //   child: Column(
-              //     spacing: 10,
-              //     children: [
-              //       Text('Moody Sunset'),
-              //       ListView.builder(
-              //         shrinkWrap: true,
-              //         itemCount: moodySunset.length,
-              //         itemBuilder:
-              //             (context, index) => ListTile(
-              //               leading: CircleAvatar(
-              //                 backgroundColor: moodySunset[index],
-              //               ),
-              //             ),
-              //       ),
-              //     ],
-              //   ),
-              // ),
-              // SizedBox(
-              //   height: 600,
-              //   width: 100,
-              //   child: Column(
-              //     spacing: 10,
-              //     children: [
-              //       Text('Pastel Rainbow'),
-              //       ListView.builder(
-              //         shrinkWrap: true,
-              //         itemCount: pastelRainbow.length,
-              //         itemBuilder:
-              //             (context, index) => ListTile(
-              //               leading: CircleAvatar(
-              //                 backgroundColor: pastelRainbow[index],
-              //               ),
-              //             ),
-              //       ),
-              //     ],
-              //   ),
-              // ),
-            ],
+                SizedBox(
+                  width: MediaQuery.sizeOf(context).width,
+                  height: 300,
+                  child: GridView.builder(
+                    gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                      crossAxisSpacing: 30,
+                      mainAxisSpacing: 30,
+                      crossAxisCount:
+                          MediaQuery.sizeOf(context).width < SizeConfig.tablet
+                              ? 4
+                              : MediaQuery.sizeOf(context).width <
+                                  SizeConfig.desktop
+                              ? 8
+                              : 10,
+                    ),
+                    // scrollDirection: Axis.horizontal,
+                    // shrinkWrap: true,
+                    itemCount: clayAndSea.length,
+                    itemBuilder:
+                        (context, index) =>
+                            CircleAvatar(backgroundColor: clayAndSea[index]),
+                  ),
+                ),
+                Text(
+                  'Mood Sunset',
+                  style: Theme.of(context).textTheme.headlineLarge,
+                ),
+                SizedBox(
+                  width: MediaQuery.sizeOf(context).width,
+                  height: 300,
+                  child: GridView.builder(
+                    gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                      crossAxisSpacing: 30,
+                      mainAxisSpacing: 30,
+                      crossAxisCount:
+                          MediaQuery.sizeOf(context).width < SizeConfig.tablet
+                              ? 4
+                              : MediaQuery.sizeOf(context).width <
+                                  SizeConfig.desktop
+                              ? 8
+                              : 10,
+                    ),
+                    // scrollDirection: Axis.horizontal,
+                    // shrinkWrap: true,
+                    itemCount: moodySunset.length,
+                    itemBuilder:
+                        (context, index) =>
+                            CircleAvatar(backgroundColor: moodySunset[index]),
+                  ),
+                ),
+                Text(
+                  'Pastel Rainbow',
+                  style: Theme.of(context).textTheme.headlineLarge,
+                ),
+                SizedBox(
+                  width: MediaQuery.sizeOf(context).width,
+                  height: 300,
+                  child: GridView.builder(
+                    gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                      crossAxisSpacing: 30,
+                      mainAxisSpacing: 30,
+                      crossAxisCount:
+                          MediaQuery.sizeOf(context).width < SizeConfig.tablet
+                              ? 4
+                              : MediaQuery.sizeOf(context).width <
+                                  SizeConfig.desktop
+                              ? 8
+                              : 10,
+                    ),
+                    // scrollDirection: Axis.horizontal,
+                    // shrinkWrap: true,
+                    itemCount: pastelRainbow.length,
+                    itemBuilder:
+                        (context, index) =>
+                            CircleAvatar(backgroundColor: pastelRainbow[index]),
+                  ),
+                ),
+              ],
+            ),
           ),
         ),
       ),
